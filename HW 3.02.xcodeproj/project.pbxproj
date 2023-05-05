@@ -39,10 +39,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FD6EBF202A04B2D400EA65A2 = {
+		FD3726BF2A052B070047F874 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD6EBF2C2A04B2D400EA65A2 /* AppDelegate.swift */,
+				FD6EBF2E2A04B2D400EA65A2 /* SceneDelegate.swift */,
+				FD6EBF3A2A04B2D500EA65A2 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FD3726C02A052B170047F874 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FD6EBF322A04B2D400EA65A2 /* Main.storyboard */,
+				FD6EBF372A04B2D500EA65A2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FD3726C12A052B7A0047F874 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD6EBF302A04B2D400EA65A2 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FD3726C22A052B930047F874 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FD6EBF402A04B4F000EA65A2 /* Amiibo.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FD3726C32A052BB70047F874 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD6EBF352A04B2D500EA65A2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FD6EBF202A04B2D400EA65A2 = {
+			isa = PBXGroup;
+			children = (
 				FD6EBF2B2A04B2D400EA65A2 /* HW 3.02 */,
 				FD6EBF2A2A04B2D400EA65A2 /* Products */,
 			);
@@ -59,13 +101,11 @@
 		FD6EBF2B2A04B2D400EA65A2 /* HW 3.02 */ = {
 			isa = PBXGroup;
 			children = (
-				FD6EBF2C2A04B2D400EA65A2 /* AppDelegate.swift */,
-				FD6EBF2E2A04B2D400EA65A2 /* SceneDelegate.swift */,
-				FD6EBF302A04B2D400EA65A2 /* ViewController.swift */,
-				FD6EBF322A04B2D400EA65A2 /* Main.storyboard */,
-				FD6EBF352A04B2D500EA65A2 /* Assets.xcassets */,
-				FD6EBF372A04B2D500EA65A2 /* LaunchScreen.storyboard */,
-				FD6EBF3A2A04B2D500EA65A2 /* Info.plist */,
+				FD3726C12A052B7A0047F874 /* ViewControllers */,
+				FD3726C02A052B170047F874 /* Storyboards */,
+				FD3726C22A052B930047F874 /* Services */,
+				FD3726BF2A052B070047F874 /* App */,
+				FD3726C32A052BB70047F874 /* Resources */,
 			);
 			path = "HW 3.02";
 			sourceTree = "<group>";
@@ -293,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BMFF8ZNZAT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW 3.02/Info.plist";
+				INFOPLIST_FILE = "HW 3.02/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -324,7 +364,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BMFF8ZNZAT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW 3.02/Info.plist";
+				INFOPLIST_FILE = "HW 3.02/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -7,9 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    private let url = URL(string: "https://www.amiiboapi.com/api/amiibo/")!
+final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +15,8 @@ class ViewController: UIViewController {
     }
     
     private func fetchAmiibo() {
+        let url = URL(string: "https://www.amiiboapi.com/api/amiibo/")!
+        
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "No error description")
@@ -25,8 +25,8 @@ class ViewController: UIViewController {
             do {
                 let decoder = JSONDecoder()
                 let amiiboInfo = try decoder.decode(Amiibo.self, from: data)
-                for amiibo in amiiboInfo.amiibo {
-                    print ("\(amiibo)\n")
+                for index in 0...2 {
+                    print("\(amiiboInfo.amiibo[index].description)\n")
                 }
             } catch {
                 print(error.localizedDescription)
