@@ -22,10 +22,8 @@ struct Series: Decodable, CustomStringConvertible {
     
     var description: String {
         """
-        Series: \(amiiboSeries),
         Character: \(character),
         Game series: \(gameSeries),
-        Image URL: \(image),
         Character name: \(name),
         Country release:
             Australia: \(release.au ?? "haven't date of release"),
