@@ -20,7 +20,7 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhS-Bx-rcv">
                                 <rect key="frame" x="0.0" y="176" width="320" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="241-r4-L4G">
                                 <rect key="frame" x="16" y="464" width="288" height="54"/>
@@ -37,15 +37,24 @@
                                     <segue destination="Fcf-je-mDh" kind="show" id="HiU-t2-3pc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select series" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BBe-nD-l0w">
+                                <rect key="frame" x="20" y="128" width="280" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dhS-Bx-rcv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8hE-GM-Jyj"/>
                             <constraint firstItem="dhS-Bx-rcv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FFp-jb-Kv8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BBe-nD-l0w" secondAttribute="trailing" constant="20" id="I4j-0w-j33"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="241-r4-L4G" secondAttribute="bottom" constant="50" id="Rjf-fn-c8h"/>
+                            <constraint firstItem="dhS-Bx-rcv" firstAttribute="top" secondItem="BBe-nD-l0w" secondAttribute="bottom" id="e34-zk-2vN"/>
                             <constraint firstItem="241-r4-L4G" firstAttribute="height" secondItem="dhS-Bx-rcv" secondAttribute="height" multiplier="0.25" id="e58-H1-HO5"/>
                             <constraint firstItem="241-r4-L4G" firstAttribute="width" secondItem="dhS-Bx-rcv" secondAttribute="width" multiplier="0.9" id="pBc-0O-p2E"/>
+                            <constraint firstItem="BBe-nD-l0w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qd1-99-vOV"/>
                             <constraint firstItem="241-r4-L4G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tdf-Mz-ybd"/>
                         </constraints>
                     </view>
@@ -56,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028.2442748091603" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1026.9767441860465" y="3.218884120171674"/>
         </scene>
         <!--Select your hero!-->
         <scene sceneID="j7O-tn-l50">
@@ -144,9 +153,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efS-Ye-IXE">
                                 <rect key="frame" x="0.0" y="112.5" width="320" height="199"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYO-UA-Ekc">
-                                <rect key="frame" x="20" y="341.5" width="280" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZYO-UA-Ekc">
+                                <rect key="frame" x="20" y="341.5" width="280" height="206.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -161,6 +170,7 @@
                             <constraint firstItem="ZYO-UA-Ekc" firstAttribute="top" secondItem="efS-Ye-IXE" secondAttribute="bottom" constant="30" id="tMr-na-cAB"/>
                             <constraint firstItem="efS-Ye-IXE" firstAttribute="leading" secondItem="Mj7-ga-e7r" secondAttribute="leading" id="tRN-0E-cq2"/>
                             <constraint firstItem="efS-Ye-IXE" firstAttribute="trailing" secondItem="Mj7-ga-e7r" secondAttribute="trailing" id="vRA-kQ-eq7"/>
+                            <constraint firstItem="Mj7-ga-e7r" firstAttribute="bottom" secondItem="ZYO-UA-Ekc" secondAttribute="bottom" constant="20" id="xMX-wb-IBS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Information" id="cIf-so-sJq"/>
@@ -190,8 +200,8 @@
                                 <rect key="frame" x="0.0" y="220" width="320" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amiibo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPK-7o-eeo">
-                                        <rect key="frame" x="52.5" y="32" width="215" height="64.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                        <rect key="frame" x="37.5" y="32" width="245.5" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="73"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -231,7 +241,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WcY-EQ-DHF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="DKO-g6-jQD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="92.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
