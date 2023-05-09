@@ -26,10 +26,10 @@ struct Series: Decodable, CustomStringConvertible {
         Game series: \(gameSeries),
         Character name: \(name),
         Country release:
-            Australia: \(release.au ?? "haven't date of release"),
-            Europe: \(release.eu ?? "haven't date of release"),
-            Japan : \(release.jp ?? "haven't date of release"),
-            USA: \(release.na ?? "haven't date of release").
+         Australia: \(release.au ?? "haven't date of release"),
+         Europe: \(release.eu ?? "haven't date of release"),
+         Japan : \(release.jp ?? "haven't date of release"),
+         USA: \(release.na ?? "haven't date of release").
         Type: \(type)
         """
     }

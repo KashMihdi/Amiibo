@@ -8,17 +8,26 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    // MARK: - IBOutlets
     @IBOutlet weak var amiiboImage: UIImageView!
     @IBOutlet weak var informationLabel: UILabel!
     
+    // MARK: - Private properties
     private let networkManager = NetworkManager.shared
     
+    // MARK: - Public properties
     var series: Series!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         informationLabel.text = series.description
+        fetchImage()
+    }
+}
+
+// MARK: - Networking
+extension DetailViewController {
+    private func fetchImage() {
         networkManager.fetchImage(from: series.image) { result in
             switch result {
             case .success(let imageData):
@@ -28,5 +37,4 @@ class DetailViewController: UIViewController {
             }
         }
     }
-
 }
