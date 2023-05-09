@@ -14,6 +14,7 @@
 		FD6EBF362A04B2D500EA65A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD6EBF352A04B2D500EA65A2 /* Assets.xcassets */; };
 		FD6EBF392A04B2D500EA65A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6EBF372A04B2D500EA65A2 /* LaunchScreen.storyboard */; };
 		FD6EBF412A04B4F000EA65A2 /* Amiibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6EBF402A04B4F000EA65A2 /* Amiibo.swift */; };
+		FDA6DA052A0A227C00140856 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6DA042A0A227C00140856 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FD6EBF382A04B2D500EA65A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD6EBF3A2A04B2D500EA65A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD6EBF402A04B4F000EA65A2 /* Amiibo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amiibo.swift; sourceTree = "<group>"; };
+		FDA6DA042A0A227C00140856 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +106,19 @@
 				FD3726C12A052B7A0047F874 /* ViewControllers */,
 				FD3726C02A052B170047F874 /* Storyboards */,
 				FD3726C22A052B930047F874 /* Models */,
+				FDA6DA062A0A228500140856 /* Services */,
 				FD3726BF2A052B070047F874 /* App */,
 				FD3726C32A052BB70047F874 /* Resources */,
 			);
 			path = "HW 3.02";
+			sourceTree = "<group>";
+		};
+		FDA6DA062A0A228500140856 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FDA6DA042A0A227C00140856 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				FD6EBF412A04B4F000EA65A2 /* Amiibo.swift in Sources */,
 				FD6EBF312A04B2D400EA65A2 /* AmiiboViewController.swift in Sources */,
+				FDA6DA052A0A227C00140856 /* NetworkManager.swift in Sources */,
 				FD6EBF2D2A04B2D400EA65A2 /* AppDelegate.swift in Sources */,
 				FD6EBF2F2A04B2D400EA65A2 /* SceneDelegate.swift in Sources */,
 			);

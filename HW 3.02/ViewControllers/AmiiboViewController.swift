@@ -9,29 +9,49 @@ import UIKit
 
 final class AmiiboViewController: UIViewController {
     
+    @IBOutlet weak var amiiboPicker: UIPickerView!
+    
+    private let networkManager = NetworkManager.shared
+    private var amiiboList: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        amiiboPicker.delegate = self
+        amiiboPicker.dataSource = self
         fetchAmiibo()
     }
     
     private func fetchAmiibo() {
-        let url = URL(string: "https://www.amiiboapi.com/api/amiibo/")!
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                let amiiboInfo = try decoder.decode(Amiibo.self, from: data)
-                for index in 0...2 {
-                    print("\(amiiboInfo.amiibo[index].description)\n")
+        networkManager.fetch(Amiibo.self, from: Link.amiiboURL.url) { [weak self] result in
+            switch result {
+            case .success(let amiibo):
+                let dictionaryOfAmiibo = Dictionary(
+                    grouping: amiibo.amiibo,
+                    by: { $0.amiiboSeries }
+                )
+                let series = Array(dictionaryOfAmiibo.keys).sorted()
+                self?.amiiboList = series
+                DispatchQueue.main.async {
+                    self?.amiiboPicker.reloadAllComponents()
                 }
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let error):
+                print(error)
             }
-        }.resume()
+        }
     }
 }
 
+extension AmiiboViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        amiiboList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        amiiboList[row]
+    }
+    
+}
