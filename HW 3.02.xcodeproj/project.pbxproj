@@ -370,6 +370,7 @@
 				DEVELOPMENT_TEAM = BMFF8ZNZAT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HW 3.02/App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Amiibo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -401,6 +402,7 @@
 				DEVELOPMENT_TEAM = BMFF8ZNZAT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HW 3.02/App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Amiibo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
