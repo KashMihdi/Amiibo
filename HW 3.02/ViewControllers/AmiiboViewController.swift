@@ -12,13 +12,19 @@ final class AmiiboViewController: UIViewController {
     @IBOutlet weak var amiiboPicker: UIPickerView!
     
     private let networkManager = NetworkManager.shared
-    private var amiiboList: [String] = []
+    private var amiiboList: [String : [Series]] = [:]
+    private lazy var selectedSeries: String = amiiboList.keys.first ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         amiiboPicker.delegate = self
         amiiboPicker.dataSource = self
         fetchAmiibo()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController else { return }
+        detailVC.series = amiiboList[selectedSeries] ?? [Series]()
     }
     
     private func fetchAmiibo() {
@@ -29,9 +35,8 @@ final class AmiiboViewController: UIViewController {
                     grouping: amiibo.amiibo,
                     by: { $0.amiiboSeries }
                 )
-                let series = Array(dictionaryOfAmiibo.keys).sorted()
-                self?.amiiboList = series
                 DispatchQueue.main.async {
+                    self?.amiiboList = dictionaryOfAmiibo
                     self?.amiiboPicker.reloadAllComponents()
                 }
             case .failure(let error):
@@ -47,11 +52,17 @@ extension AmiiboViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        amiiboList.count
+        amiiboList.keys.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        amiiboList[row]
+        let series = Array(amiiboList.keys).sorted()
+        return series[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSeries = Array(amiiboList.keys).sorted()[row]
+        print(selectedSeries)
     }
     
 }

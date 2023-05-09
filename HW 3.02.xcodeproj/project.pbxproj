@@ -15,6 +15,8 @@
 		FD6EBF392A04B2D500EA65A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6EBF372A04B2D500EA65A2 /* LaunchScreen.storyboard */; };
 		FD6EBF412A04B4F000EA65A2 /* Amiibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6EBF402A04B4F000EA65A2 /* Amiibo.swift */; };
 		FDA6DA052A0A227C00140856 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6DA042A0A227C00140856 /* NetworkManager.swift */; };
+		FDA6DA0A2A0A3B7E00140856 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6DA092A0A3B7E00140856 /* DetailViewController.swift */; };
+		FDA6DA0C2A0A414F00140856 /* AmiiboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6DA0B2A0A414F00140856 /* AmiiboCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		FD6EBF3A2A04B2D500EA65A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD6EBF402A04B4F000EA65A2 /* Amiibo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amiibo.swift; sourceTree = "<group>"; };
 		FDA6DA042A0A227C00140856 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FDA6DA092A0A3B7E00140856 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FDA6DA0B2A0A414F00140856 /* AmiiboCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				FD6EBF302A04B2D400EA65A2 /* AmiiboViewController.swift */,
+				FDA6DA092A0A3B7E00140856 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 		FD6EBF2B2A04B2D400EA65A2 /* HW 3.02 */ = {
 			isa = PBXGroup;
 			children = (
+				FDA6DA0D2A0A420500140856 /* Views */,
 				FD3726C12A052B7A0047F874 /* ViewControllers */,
 				FD3726C02A052B170047F874 /* Storyboards */,
 				FD3726C22A052B930047F874 /* Models */,
@@ -119,6 +125,14 @@
 				FDA6DA042A0A227C00140856 /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FDA6DA0D2A0A420500140856 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDA6DA0B2A0A414F00140856 /* AmiiboCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,8 @@
 				FD6EBF412A04B4F000EA65A2 /* Amiibo.swift in Sources */,
 				FD6EBF312A04B2D400EA65A2 /* AmiiboViewController.swift in Sources */,
 				FDA6DA052A0A227C00140856 /* NetworkManager.swift in Sources */,
+				FDA6DA0C2A0A414F00140856 /* AmiiboCell.swift in Sources */,
+				FDA6DA0A2A0A3B7E00140856 /* DetailViewController.swift in Sources */,
 				FD6EBF2D2A04B2D400EA65A2 /* AppDelegate.swift in Sources */,
 				FD6EBF2F2A04B2D400EA65A2 /* SceneDelegate.swift in Sources */,
 			);
