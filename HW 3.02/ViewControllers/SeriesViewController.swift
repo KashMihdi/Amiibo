@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SeriesViewController: UITableViewController {
+final class SeriesViewController: UITableViewController {
     // MARK: - Public properties
     var series: [Series] = []
     

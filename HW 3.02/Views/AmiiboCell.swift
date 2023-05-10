@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmiiboCell: UITableViewCell {
+final class AmiiboCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!

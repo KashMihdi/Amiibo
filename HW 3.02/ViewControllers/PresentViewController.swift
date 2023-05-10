@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PresentViewController: UIViewController {
+final class PresentViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

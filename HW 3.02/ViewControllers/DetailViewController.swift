@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var amiiboImage: UIImageView!
     @IBOutlet weak var informationLabel: UILabel!
@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     // MARK: - Public properties
     var series: Series!
     
+    // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         informationLabel.text = series.description
