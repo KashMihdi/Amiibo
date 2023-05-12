@@ -32,22 +32,17 @@ final class PresentViewController: UIViewController {
 // MARK: - Networking
 extension PresentViewController {
     private func fetchAmiibo() {
-        networkManager.fetch(from: Link.amiiboURL.url) { [weak self] result in
+        networkManager.fetchAmiibo(from: Link.amiiboURL.url) { [weak self] result in
             switch result {
             case .success(let amiibo):
                 let dictionaryOfAmiibo = Dictionary(
                     grouping: amiibo.amiibo,
                     by: { $0.amiiboSeries }
                 )
-                DispatchQueue.main.async {
-                    self?.performSegue(
-                        withIdentifier: "showAmiibo",
-                        sender: dictionaryOfAmiibo
-                    )
-                    self?.activityIndicator.stopAnimating()
-                }
+                self?.performSegue(withIdentifier: "showAmiibo", sender: dictionaryOfAmiibo)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

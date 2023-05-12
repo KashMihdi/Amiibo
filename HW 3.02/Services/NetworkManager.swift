@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link {
     case amiiboURL
@@ -28,36 +29,55 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
-                return
+    func fetchData(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
+    }
+//    func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+//        DispatchQueue.global().async {
+//            guard let imageData = try? Data(contentsOf: url) else {
+//                completion(.failure(.noData))
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                completion(.success(imageData))
+//            }
+//        }
+//    }
+    
+    func fetchAmiibo(from url: URL, completion: @escaping(Result<Amiibo, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let amiibo = Amiibo.getAmiibo(from: value)
+                    completion(.success(amiibo))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-        }
     }
     
-    func fetch(from url: URL, completion: @escaping(Result<Amiibo, NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let dataModel = try decoder.decode(Amiibo.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(dataModel))
-                }
-            } catch {
-                completion(.failure(.decodingError))
-            }
-            
-        }.resume()
-    }
+//    func fetchCourses(from url: URL, completion: @escaping(Result<[Course], AFError>) -> Void) {
+//        AF.request(url)
+//            .validate()
+//            .responseJSON { dataResponse in
+//                switch dataResponse.result {
+//                case .success(let value):
+//                    let courses = Course.getCourses(from: value)
+//                    completion(.success(courses))
+//                case .failure(let error):
+//                    completion(.failure(error))
+//                }
+//            }
+//    }
 }

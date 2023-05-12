@@ -29,12 +29,12 @@ final class DetailViewController: UIViewController {
 // MARK: - Networking
 extension DetailViewController {
     private func fetchImage() {
-        networkManager.fetchImage(from: series.image) { result in
+        networkManager.fetchData(from: series.image) { result in
             switch result {
             case .success(let imageData):
                 self.amiiboImage.image = UIImage(data: imageData)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

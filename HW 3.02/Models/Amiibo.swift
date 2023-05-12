@@ -9,13 +9,30 @@ import Foundation
 
 struct Amiibo: Decodable {
     let amiibo: [Series]
+    
+    init(amiibo: [Series]) {
+        self.amiibo = amiibo
+    }
+    
+    init(from data: [String: Any]) {
+            guard let amiiboData = data["amiibo"] as? [[String: Any]] else {
+                    amiibo = []
+                    return
+            }
+            amiibo = amiiboData.map { Series(from: $0) }
+        }
+    
+    static func getAmiibo(from value: Any) -> Amiibo {
+        guard let amiiboData = value as? [String : Any] else { return Amiibo(amiibo: []) }
+        return Amiibo(from: amiiboData)
+    }
 }
 
 struct Series: Decodable, CustomStringConvertible {
     let amiiboSeries: String
     let character: String
     let gameSeries: String
-    let image: URL
+    let image: String
     let name: String
     let release: Release
     let type: String
@@ -37,6 +54,16 @@ struct Series: Decodable, CustomStringConvertible {
         Type: \(type)
         """
     }
+    
+    init(from seriesData: [String : Any]) {
+        amiiboSeries = seriesData["amiiboSeries"] as? String ?? ""
+        character = seriesData["character"] as? String ?? ""
+        gameSeries = seriesData["gameSeries"] as? String ?? ""
+        image = seriesData["image"] as? String ?? ""
+        name = seriesData["name"] as? String ?? ""
+        release = Release(from: seriesData["release"] as? [String: Any] ?? [:])
+        type = seriesData["type"] as? String ?? ""
+    }
 }
 
 struct Release: Decodable {
@@ -44,4 +71,18 @@ struct Release: Decodable {
     let eu: String?
     let jp: String?
     let na: String?
+    
+    init(au: String?, eu: String?, jp: String?, na: String?) {
+        self.au = au
+        self.eu = eu
+        self.jp = jp
+        self.na = na
+    }
+    
+    init(from releaseData: [String : Any]) {
+        au = releaseData["au"] as? String
+        eu = releaseData["eu"] as? String
+        jp = releaseData["jp"] as? String
+        na = releaseData["na"] as? String
+    }
 }

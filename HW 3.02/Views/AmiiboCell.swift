@@ -24,12 +24,12 @@ final class AmiiboCell: UITableViewCell {
         typeLabel.text = series.type
         gameSeriesLabel.text = series.gameSeries
         
-        networkManager.fetchImage(from: series.image) { [weak self] result in
+        networkManager.fetchData(from: series.image) { result in
             switch result {
             case .success(let imageData):
-                self?.amiiboImage.image = UIImage(data: imageData)
+                self.amiiboImage.image = UIImage(data: imageData)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
