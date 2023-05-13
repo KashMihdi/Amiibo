@@ -19,11 +19,6 @@ enum Link {
     }
 }
 
-enum NetworkError: Error {
-    case noData
-    case decodingError
-}
-
 final class NetworkManager {
     static let shared = NetworkManager()
     
@@ -41,17 +36,6 @@ final class NetworkManager {
                 }
             }
     }
-//    func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-//        DispatchQueue.global().async {
-//            guard let imageData = try? Data(contentsOf: url) else {
-//                completion(.failure(.noData))
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                completion(.success(imageData))
-//            }
-//        }
-//    }
     
     func fetchAmiibo(from url: URL, completion: @escaping(Result<Amiibo, AFError>) -> Void) {
         AF.request(url)
@@ -66,18 +50,4 @@ final class NetworkManager {
                 }
             }
     }
-    
-//    func fetchCourses(from url: URL, completion: @escaping(Result<[Course], AFError>) -> Void) {
-//        AF.request(url)
-//            .validate()
-//            .responseJSON { dataResponse in
-//                switch dataResponse.result {
-//                case .success(let value):
-//                    let courses = Course.getCourses(from: value)
-//                    completion(.success(courses))
-//                case .failure(let error):
-//                    completion(.failure(error))
-//                }
-//            }
-//    }
 }

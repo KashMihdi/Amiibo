@@ -23,7 +23,9 @@ struct Amiibo: Decodable {
         }
     
     static func getAmiibo(from value: Any) -> Amiibo {
-        guard let amiiboData = value as? [String : Any] else { return Amiibo(amiibo: []) }
+        guard let amiiboData = value as? [String : Any] else {
+            return Amiibo(amiibo: [])
+        }
         return Amiibo(from: amiiboData)
     }
 }
@@ -46,10 +48,10 @@ struct Series: Decodable, CustomStringConvertible {
         Character name: \(name)
         
         Country release:
-         Australia: \(release.au ?? "haven't date of release")
-         Europe: \(release.eu ?? "haven't date of release")
-         Japan : \(release.jp ?? "haven't date of release")
-         USA: \(release.na ?? "haven't date of release")
+         Australia: \(release.australia ?? "haven't date of release")
+         Europe: \(release.europe ?? "haven't date of release")
+         Japan : \(release.japan ?? "haven't date of release")
+         USA: \(release.usa ?? "haven't date of release")
         
         Type: \(type)
         """
@@ -67,22 +69,15 @@ struct Series: Decodable, CustomStringConvertible {
 }
 
 struct Release: Decodable {
-    let au: String?
-    let eu: String?
-    let jp: String?
-    let na: String?
-    
-    init(au: String?, eu: String?, jp: String?, na: String?) {
-        self.au = au
-        self.eu = eu
-        self.jp = jp
-        self.na = na
-    }
-    
+    let australia: String?
+    let europe: String?
+    let japan: String?
+    let usa: String?
+
     init(from releaseData: [String : Any]) {
-        au = releaseData["au"] as? String
-        eu = releaseData["eu"] as? String
-        jp = releaseData["jp"] as? String
-        na = releaseData["na"] as? String
+        australia = releaseData["au"] as? String
+        europe = releaseData["eu"] as? String
+        japan = releaseData["jp"] as? String
+        usa = releaseData["na"] as? String
     }
 }
